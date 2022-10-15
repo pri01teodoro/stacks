@@ -1,41 +1,69 @@
+import java.util.*;
+
 class Parenteses {
    
-    public String elementos[];
-
-    public Parenteses(){
-        elementos = new String[];
-
-    }
+    public String pilha[] = new String[10];
+    public int topo = 0;
+    String abreEl = "([{";
+    String fechaEl = ")]}";    
     
     /** * Insere um elemento no topo da pilha. * 
      * @param elemento a ser inserido. */ 
-    public void push (String e);
+    public void push(){
+        for (int i = 0; i < pilha.length; i++) {
+            String elemento = pilha[i];
+            if (abreEl.contains(elemento)) {
+                pilha[topo] = elemento;
+                topo++;
+            }
+            
+        } 
+    }
+
+   /*  public void push(){
+        pilha[topo] = "(";
+        topo++;
+    } */
+
+
+       /** * Remove o elemento do topo da pilha. * 
+     * @return elemento a ser removido.  */ 
+    public String pop(){
+        for (int i = 0; i < pilha.length; i++) {
+            String elemento = pilha[i];
+            if (fechaEl.contains(elemento)) {
+                pilha[topo] = elemento;
+                topo--;
+            } 
+        } 
+        return pilha[topo];
+    }
     
-    /* Retorna o número de elementos na pilha. */ 
-    public int size( );
-    
-    /** * Indica quando a pilha está vazia. */ 
-     
-    public boolean isEmpty( );
-    
-    /** * Inspeciona o elemento no topo da pilha. * 
-     * @return o elemento do topo da pilha. * 
-     * @exception EmptyStackException se a pilha estiver vazia. */ 
-    public E top( ) 
-    throws EmptyStackException;
-    
-    
-    /** * Remove o elemento do topo da pilha. * 
-     * @return elemento a ser removido. * 
-     * @exception EmptyStackException se a pilha estiver vazia. */ 
-    public E pop( )
-    throws EmptyStackException;
-    
+
+  
+
+
+
+
+    public static void main(String[] args) {
+        
+        /* Scanner leitor = new Scanner(System.in);
+
+        System.out.println("Insira um texto: ");
+        String linhaLida = leitor.nextLine();
+
+        System.out.println(linhaLida.toUpperCase()); */
+
+        String[] elementos = new String[10];
+
+        elementos[0] = "A";
+        elementos[1] = "B";
+
+        for (int i = 0; i < elementos.length; i++) {
+            String elemento = elementos[i];
+            System.out.println(elemento);
+        }
+    }
+
+
 }
-
-
-/** * Exceção de tempo de execução lançada quando alguém tenta executar uma operação top * ou pop sobre uma pilha vazia. */
-public class EmptyStackException extends RuntimeException { public EmptyStackException(String err) {
-    super(err);
-    }
-    }
