@@ -20,10 +20,10 @@ class Parenteses {
         } 
     }
 
-   /*  public void push(){
-        pilha[topo] = "(";
-        topo++;
-    } */
+    //  public void push(){
+    //     pilha[topo] = "(";
+    //     topo++;
+    // } 
 
 
        /** * Remove o elemento do topo da pilha. * 
