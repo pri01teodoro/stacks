@@ -31,7 +31,10 @@ class Parenteses {
     public String pop(){
         for (int i = 0; i < pilha.length; i++) {
             String elemento = pilha[i];
-            if (fechaEl.contains(elemento)) {
+            if (topo != 0){
+                return System.out.println("Entrada inválida");      //...expressão desbalanceada.
+                                                   //...encerra a função.
+            } else { (fechaEl.contains(elemento)) 
                 pilha[topo] = elemento;
                 topo--;
             } 
